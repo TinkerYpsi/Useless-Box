@@ -1,4 +1,3 @@
-int angle = 0;
 
 #include "Servo.h"
 Servo servo;
@@ -9,6 +8,8 @@ int buttonpushed = 0;
 const int maxang= 100;
 const int minang= 0;
 int repeat = 0;
+int repeat2 = 0;
+int angle = 0;
 void setup() {
   // put your setup code here, to run once:
 servo.attach(9);  //servo attached to pin 9
@@ -18,7 +19,7 @@ void loop() {
   // put your main code here, to run repeatedly:
   buttonpushed = digitalRead(buttonpushed); //check if button has been pressed
   if (buttonpushed == HIGH){
-  randnum = random(0,4);// initialize random value
+  randnum = random(0,5);// initialize random value
   if (randnum= 0) // normal turn off
   { 
     delay(200);
@@ -37,14 +38,15 @@ void loop() {
     delay(50);
     servo.write(minang);
     }
-   if (randnum == 2)  // waving turn off
-      { for (repeat; repeat < 5; repeat+=1)// note: don't know why i initialized it earlier, but I was getting an error if i dont
-        {
+   if (randnum == 2) 
+      {// waves and then turns off
+       for (repeat=0; repeat < 5; repeat+=1)
+       {
             delay(50);
             servo.write(75);
             delay(50);
             servo.write(20); 
-        }
+       }
         servo.write(maxang);
         delay(50);
         servo.write(minang);
@@ -59,7 +61,7 @@ void loop() {
               delay(50);
               servo.write(minang);
         }
-     if (randnum == 4)  // turns off and then waves
+   if (randnum == 4)  // turns off and then waves
       { 
         
         servo.write(maxang);
@@ -74,5 +76,7 @@ void loop() {
             servo.write(20); 
         }
       }
+   
 }
+servo.write(minang);
 }
