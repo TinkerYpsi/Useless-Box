@@ -13,12 +13,13 @@ int angle = 0;
 void setup() {
   // put your setup code here, to run once:
 servo.attach(9);  //servo attached to pin 9
+pinMode(button, INPUT_PULLUP);
 }
 
 void loop() {
   // put your main code here, to run repeatedly:
   buttonpushed = digitalRead(buttonpushed); //check if button has been pressed
-  if (buttonpushed == HIGH){
+  if (buttonpushed == LOW){
   randnum = random(0,5);// initialize random value
   if (randnum= 0) // normal turn off
   { 
