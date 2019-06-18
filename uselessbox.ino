@@ -59,5 +59,20 @@ void loop() {
               delay(50);
               servo.write(minang);
         }
+     if (randnum == 4)  // turns off and then waves
+      { 
+        
+        servo.write(maxang);
+        delay(50);
+        servo.write(minang);
+    
+        for (repeat2=0; repeat2 < 5; repeat2+=1)
+        {
+            delay(50);
+            servo.write(75);
+            delay(50);
+            servo.write(20); 
+        }
+      }
 }
 }
