@@ -57,13 +57,13 @@ void slowmofaster (int x) {
     {
       servo.write(ballistic);
       delay(100);
+      servo.write(0);
     }
     servo.write(maxang);
     delay (100);
     servo.write(minang);
   }
 }
-
 
 
 
