@@ -65,7 +65,24 @@ void slowmofaster (int x) {
   }
 }
 
+void tiptap (int x)
+  {
+    if (randnum == 4){
+      for (repeat2 = 0; repeat2 <5 ; repeat2+= 1){
+        servo.write (maxang-21);
+        delay (100);
+        servo.write (maxang-35);
+        delay (300);
+      }
+      delay (500);
+      servo.write(minang);
+      delay (700);
+      servo.write(maxang);
+      delay (300);
+      servo.write(minang);
+      }
 
+  }
 
 void setup() {
   // put your setup code here, to run once:
@@ -82,13 +99,14 @@ void loop() {
   buttonpushed = digitalRead(button); //check if button has been pressed
   if (buttonpushed == LOW) {
     delay(500);
-    randnum = random(0, 4); // initialize random value
-    Serial.print("the random number is");
+    randnum = random(0, 5); // initialize random value
+    Serial.print("the random number is ");
     Serial.print(randnum);// initialize random value
    standardturnoff(randnum);
    slowmoturnoff(randnum);
    wavefirstturnoff(randnum);
    slowmofaster(randnum);
+   tiptap(randnum);
   if (buttonpushed == HIGH)
   {
     servo.write(minang);
